@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "theroofedcanyon:turfwood_planks"
+    }
+  ],
+  "result": {
+    "item": "theroofedcanyon:turfwood_button"
+  }
+}

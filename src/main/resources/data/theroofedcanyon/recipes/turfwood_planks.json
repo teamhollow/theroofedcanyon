@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "theroofedcanyon:turfwood_logs"
+    }
+  ],
+  "result": {
+    "item": "theroofedcanyon:turfwood_planks",
+    "count": 4
+  }
+}

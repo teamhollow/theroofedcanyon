@@ -1,0 +1,76 @@
+{
+    "parent": "theroofedcanyon:block/vilepot_flower",
+    "textures": {
+        "texture_leaves": "theroofedcanyon:block/vilepot_flower_leaves_vile"
+    },
+    "elements": [
+        {
+            "name": "pot",
+            "from": [3, 6, 3],
+            "to": [13, 14, 13],
+            "rotation": {"angle": 0, "axis": "y", "origin": [8, 14, 8]},
+            "faces": {
+                "north": {"uv": [4.5, 0, 9.5, 4], "texture": "#texture_leaves"},
+                "east": {"uv": [4.5, 4.5, 9.5, 8.5], "texture": "#texture_leaves"},
+                "south": {"uv": [4.5, 4.5, 9.5, 8.5], "texture": "#texture_leaves"},
+                "west": {"uv": [4.5, 0, 9.5, 4], "texture": "#texture_leaves"},
+                "up": {"uv": [4.5, 0, 8.5, 4], "texture": "#texture_leaves"},
+                "down": {"uv": [4.5, 0, 8.5, 4], "texture": "#texture_leaves"}
+            }
+        },
+        {
+            "name": "head",
+            "from": [4, 14, 4],
+            "to": [12, 16, 12],
+            "rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 8]},
+            "faces": {
+                "north": {"uv": [5.5, 9, 9.5, 10], "texture": "#texture_leaves"},
+                "east": {"uv": [5.5, 10.5, 9.5, 11.5], "texture": "#texture_leaves"},
+                "south": {"uv": [5.5, 10.5, 9.5, 11.5], "texture": "#texture_leaves"},
+                "west": {"uv": [5.5, 9, 9.5, 10], "texture": "#texture_leaves"},
+                "up": {"uv": [0, 0, 4, 4], "texture": "#texture_leaves"},
+                "down": {"uv": [0, 0, 0, 0], "texture": "#texture_leaves"}
+            }
+        },
+        {
+            "name": "stalk",
+            "from": [-4, 0, 8],
+            "to": [20, 20, 8],
+            "rotation": {"angle": 45, "axis": "y", "origin": [8, 4, 8]},
+            "faces": {
+                "north": {"uv": [0, 5.25, 5.75, 10], "texture": "#texture"},
+                "east": {"uv": [0, 0, 0, 0], "texture": "#texture"},
+                "south": {"uv": [0, 5.25, 5.75, 10], "texture": "#texture"},
+                "west": {"uv": [0, 0, 0, 0], "texture": "#texture"},
+                "up": {"uv": [0, 0, 0, 0], "texture": "#texture"},
+                "down": {"uv": [0, 0, 0, 0], "texture": "#texture"}
+            }
+        },
+        {
+            "name": "stalk",
+            "from": [-4, 0, 8],
+            "to": [20, 20, 8],
+            "rotation": {"angle": -45, "axis": "y", "origin": [8, 4, 8]},
+            "faces": {
+                "north": {"uv": [0, 5.25, 6, 10], "texture": "#texture"},
+                "east": {"uv": [0, 0, 0, 0], "texture": "#texture"},
+                "south": {"uv": [0, 5.25, 6, 10], "texture": "#texture"},
+                "west": {"uv": [0, 0, 0, 0], "texture": "#texture"},
+                "up": {"uv": [0, 0, 0, 0], "texture": "#texture"},
+                "down": {"uv": [0, 0, 0, 0], "texture": "#texture"}
+            }
+        }
+    ],
+    "groups": [
+        {
+            "name": "vilepot",
+            "origin": [8, 8, 8],
+            "children": [0, 1]
+        },
+        {
+            "name": "leaves",
+            "origin": [8, 8, 8],
+            "children": [2, 3]
+        }
+    ]
+}

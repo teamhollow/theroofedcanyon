@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "theroofedcanyon:block/stripped_turfwood_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "theroofedcanyon:block/stripped_turfwood_wood"
+    },
+    "axis=z": {
+      "model": "theroofedcanyon:block/stripped_turfwood_wood",
+      "x": 90
+    }
+  }
+}

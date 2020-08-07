@@ -1,0 +1,22 @@
+{
+    "variants": {
+        "vile_level=0": {
+            "model": "theroofedcanyon:block/vilepot_flower"
+        },
+        "vile_level=1": {
+            "model": "theroofedcanyon:block/vilepot_flower_vile"
+        },
+        "vile_level=2": {
+            "model": "theroofedcanyon:block/vilepot_flower_vile"
+        },
+        "vile_level=3": {
+            "model": "theroofedcanyon:block/vilepot_flower_vile"
+        },
+        "vile_level=4": {
+            "model": "theroofedcanyon:block/vilepot_flower_vile_ooze"
+        },
+        "vile_level=5": {
+            "model": "theroofedcanyon:block/vilepot_flower_vile_ooze"
+        }
+    }
+}

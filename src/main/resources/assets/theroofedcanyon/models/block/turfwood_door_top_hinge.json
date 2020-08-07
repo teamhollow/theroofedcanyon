@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_rh",
+  "textures": {
+    "top": "theroofedcanyon:block/turfwood_door_top",
+    "bottom": "theroofedcanyon:block/turfwood_door_bottom"
+  }
+}

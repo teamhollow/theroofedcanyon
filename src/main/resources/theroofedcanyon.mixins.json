@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "package": "net.teamhollow.theroofedcanyon.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "BlockEntityTypeMixin"
+    ],
+    "client": [
+        "client.SignBlockEntityRendererMixin",
+        "client.BoatEntityRendererMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "theroofedcanyon:block/turfwood_slab"
+    },
+    "type=double": {
+      "model": "theroofedcanyon:block/turfwood_planks"
+    },
+    "type=top": {
+      "model": "theroofedcanyon:block/turfwood_slab_top"
+    }
+  }
+}

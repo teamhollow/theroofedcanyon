@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "theroofedcanyon:turfwood_planks"
+    }
+  },
+  "result": {
+    "item": "theroofedcanyon:turfwood_fence_gate"
+  }
+}

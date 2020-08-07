@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "theroofedcanyon:block/turfwood_planks",
+    "top": "theroofedcanyon:block/turfwood_planks",
+    "side": "theroofedcanyon:block/turfwood_planks"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "theroofedcanyon:turfwood_log",
+        "theroofedcanyon:turfwood_wood",
+        "theroofedcanyon:stripped_turfwood_log",
+        "theroofedcanyon:stripped_turfwood_wood"
+    ]
+}

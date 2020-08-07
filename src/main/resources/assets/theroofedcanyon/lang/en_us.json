@@ -1,0 +1,41 @@
+{
+    "mod.theroofedcanyon.name": "The Roofed Canyon",
+
+    "itemGroup.theroofedcanyon.item_group": "The Roofed Canyon",
+
+    "biome.theroofedcanyon.roofed_canyon": "Roofed Canyon",
+    "biome.theroofedcanyon.roofed_canyon_edge": "Roofed Canyon Edge",
+    "biome.theroofedcanyon.modified_roofed_canyon": "Modified Roofed Canyon",
+    "biome.theroofedcanyon.roofed_canyon_highlands": "Roofed Canyon Highlands",
+    
+    "block.theroofedcanyon.turfwood_planks": "Turfwood Planks",
+    "block.theroofedcanyon.turfwood_sapling": "Turfwood Sapling",
+    "block.theroofedcanyon.turfwood_door": "Turfwood Door",
+    "block.theroofedcanyon.turfwood_trapdoor": "Turfwood Trapdoor",
+    "block.theroofedcanyon.turfwood_wood": "Turfwood Wood",
+    "block.theroofedcanyon.turfwood_log": "Turfwood Log",
+    "block.theroofedcanyon.stripped_turfwood_log": "Stripped Turfwood Log",
+    "block.theroofedcanyon.stripped_turfwood_wood": "Stripped Turfwood Wood",
+    "block.theroofedcanyon.turfwood_leaves": "Turfwood Leaves",
+    "block.theroofedcanyon.turfwood_slab": "Turfwood Slab",
+    "block.theroofedcanyon.turfwood_stairs": "Turfwood Stairs",
+    "block.theroofedcanyon.turfwood_sign": "Turfwood Sign",
+    "block.theroofedcanyon.turfwood_wall_sign": "Turfwood Wall Sign",
+    "block.theroofedcanyon.turfwood_pressure_plate": "Turfwood Pressure Plate",
+    "block.theroofedcanyon.turfwood_button": "Turfwood Button",
+    "block.theroofedcanyon.turfwood_fence": "Turfwood Fence",
+    "block.theroofedcanyon.turfwood_fence_gate": "Turfwood Fence Gate",
+    "block.theroofedcanyon.potted_turfwood_sapling": "Potted Turfwood Sapling",
+    "block.theroofedcanyon.vilepot_flower": "Vilepot Flower",
+
+    "item.theroofedcanyon.vile_bottle": "Bottle of Vile",
+    "item.theroofedcanyon.vile_potion": "Vile Potion",
+    "item.theroofedcanyon.vile_potion.tooltip": "Unknown effect(s)",
+    "item.theroofedcanyon.turfwood_boat": "Turfwood Boat",
+    "item.theroofedcanyon.grubworm_spawn_egg": "Grubworm Spawn Egg",
+    "item.theroofedcanyon.chomproot_spawn_egg": "Chomproot Spawn Egg",
+
+    "entity.theroofedcanyon.turfwood_boat": "Turfwood Boat",
+    "entity.theroofedcanyon.grubworm": "Grubworm",
+    "entity.theroofedcanyon.chomproot": "Chomproot"
+}
