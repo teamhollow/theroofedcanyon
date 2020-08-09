@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import net.teamhollow.theroofedcanyon.entity.grumworm.GrubwormEntity;
+import net.teamhollow.theroofedcanyon.entity.grubworm.GrubwormEntity;
 import net.teamhollow.theroofedcanyon.init.TRCBlocks;
 import net.teamhollow.theroofedcanyon.init.TRCEntities;
 import net.teamhollow.theroofedcanyon.init.TRCProperties;

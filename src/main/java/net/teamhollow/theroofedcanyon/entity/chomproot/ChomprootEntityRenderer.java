@@ -17,7 +17,7 @@ public class ChomprootEntityRenderer extends MobEntityRenderer<ChomprootEntity, 
 
     @Override
     public Identifier getTexture(ChomprootEntity chomprootEntity) {
-        return TRCEntities.texture("chomproot/chomproot");
+        return TRCEntities.texture(ChomprootEntity.id + "/" + ChomprootEntity.id);
     }
 
     @Override

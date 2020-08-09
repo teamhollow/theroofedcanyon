@@ -1,4 +1,4 @@
-package net.teamhollow.theroofedcanyon.entity.grumworm;
+package net.teamhollow.theroofedcanyon.entity.grubworm;
 
 import net.teamhollow.theroofedcanyon.init.TRCEntities;
 import net.fabricmc.api.EnvType;
@@ -17,7 +17,8 @@ public class GrubwormEntityRenderer extends MobEntityRenderer<GrubwormEntity, Gr
         return 180.0F;
     }
 
-    public Identifier getTexture(GrubwormEntity GrubwormEntity) {
-        return TRCEntities.texture(net.teamhollow.theroofedcanyon.entity.grumworm.GrubwormEntity.id);
+    @Override
+    public Identifier getTexture(GrubwormEntity grubwormEntity) {
+        return TRCEntities.texture(GrubwormEntity.id + "/" + GrubwormEntity.id);
     }
 }

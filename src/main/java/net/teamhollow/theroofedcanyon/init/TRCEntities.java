@@ -3,7 +3,7 @@ package net.teamhollow.theroofedcanyon.init;
 import net.teamhollow.theroofedcanyon.TheRoofedCanyon;
 import net.teamhollow.theroofedcanyon.block.helpers.WoodBlocks;
 import net.teamhollow.theroofedcanyon.entity.chomproot.*;
-import net.teamhollow.theroofedcanyon.entity.grumworm.*;
+import net.teamhollow.theroofedcanyon.entity.grubworm.*;
 import net.teamhollow.theroofedcanyon.entity.vanilla.TRCBoatEntity;
 import net.teamhollow.theroofedcanyon.util.TRCBoat;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;

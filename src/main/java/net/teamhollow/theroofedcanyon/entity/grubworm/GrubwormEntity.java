@@ -1,4 +1,4 @@
-package net.teamhollow.theroofedcanyon.entity.grumworm;
+package net.teamhollow.theroofedcanyon.entity.grubworm;
 
 import java.util.EnumSet;
 import java.util.Random;
@@ -38,7 +38,7 @@ public class GrubwormEntity extends AnimalEntity {
     public static final String id = "grubworm";
     public static final EntityType.Builder<GrubwormEntity> builder = EntityType.Builder
         .create(GrubwormEntity::new, SpawnGroup.MONSTER)
-        .setDimensions(0.3F, 0.2F)
+        .setDimensions(0.4F, 0.3F)
         .maxTrackingRange(8);
     public static final int[] spawnEggColors = { 5198958, 2171696 };
 
