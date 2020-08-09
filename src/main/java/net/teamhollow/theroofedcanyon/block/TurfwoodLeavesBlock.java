@@ -115,7 +115,7 @@ public class TurfwoodLeavesBlock extends GrassBlock {
 		return state.get(INFESTED);
     }
 
-    private void spawnSilverfish(World world, BlockPos pos) {
+    private void spawnGrubworm(World world, BlockPos pos) {
         GrubwormEntity grubwormEntity = (GrubwormEntity) TRCEntities.GRUBWORM.create(world);
         grubwormEntity.refreshPositionAndAngles((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
         world.spawnEntity(grubwormEntity);
@@ -124,14 +124,14 @@ public class TurfwoodLeavesBlock extends GrassBlock {
 
     public void onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack) {
         super.onStacksDropped(state, world, pos, stack);
-        if (!world.isClient && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
-            this.spawnSilverfish(world, pos);
+        if (!world.isClient && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && isInfested(state) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
+            this.spawnGrubworm(world, pos);
         }
     }
 
     public void onDestroyedByExplosion(World world, BlockPos pos, Explosion explosion) {
-        if (!world.isClient) {
-            this.spawnSilverfish(world, pos);
+        if (!world.isClient && isInfested(world.getBlockState(pos))) {
+            this.spawnGrubworm(world, pos);
         }
     }
 }
