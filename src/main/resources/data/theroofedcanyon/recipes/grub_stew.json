@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:campfire_cooking",
+    "ingredient": {
+        "item": "theroofedcanyon:grubworm_in_a_bowl"
+    },
+    "result": "theroofedcanyon:grub_stew",
+    "experience": 0,
+    "cookingtime": 600
+}

@@ -6,6 +6,7 @@ import java.util.Random;
 import net.teamhollow.theroofedcanyon.block.TurfwoodLeavesBlock;
 import net.teamhollow.theroofedcanyon.init.TRCBlocks;
 import net.teamhollow.theroofedcanyon.init.TRCEntities;
+import net.teamhollow.theroofedcanyon.init.TRCItems;
 import net.teamhollow.theroofedcanyon.init.TRCProperties;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityDimensions;
@@ -23,10 +24,15 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsage;
+import net.minecraft.item.Items;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.GameRules;
@@ -54,6 +60,7 @@ public class GrubwormEntity extends AnimalEntity {
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D);
     }
 
+    @Override
     protected void initGoals() {
         this.callForHelpGoal = new GrubwormEntity.CallForHelpGoal(this);
 
@@ -69,34 +76,21 @@ public class GrubwormEntity extends AnimalEntity {
         this.targetSelector.add(2, new FollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
     }
 
-    public double getHeightOffset() {
-        return 0.1D;
+    @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.getItem() == Items.BOWL) {
+            player.playSound(SoundEvents.BLOCK_BEEHIVE_ENTER, 1.0F, 1.0F);
+            ItemStack itemStack2 = ItemUsage.method_30012(itemStack, player, TRCItems.GRUBWORM_IN_A_BOWL.getStackForRender());
+            player.setStackInHand(hand, itemStack2);
+            this.remove();
+            return ActionResult.success(this.world.isClient);
+        } else {
+            return super.interactMob(player, hand);
+        }
     }
 
-    protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
-        return 0.13F;
-    }
-
-    protected boolean canClimb() {
-        return false;
-    }
-
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_SILVERFISH_AMBIENT;
-    }
-
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_SILVERFISH_HURT;
-    }
-
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_SILVERFISH_DEATH;
-    }
-
-    protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(SoundEvents.ENTITY_SILVERFISH_STEP, 0.15F, 1.0F);
-    }
-
+    @Override
     public boolean damage(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
@@ -110,16 +104,54 @@ public class GrubwormEntity extends AnimalEntity {
         }
     }
 
+    @Override
+    public double getHeightOffset() {
+        return 0.1D;
+    }
+
+    @Override
+    protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
+        return 0.13F;
+    }
+
+    @Override
+    protected boolean canClimb() {
+        return false;
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_SILVERFISH_AMBIENT;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_SILVERFISH_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_SILVERFISH_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        this.playSound(SoundEvents.ENTITY_SILVERFISH_STEP, 0.15F, 1.0F);
+    }
+
+    @Override
     public void tick() {
         this.bodyYaw = this.yaw;
         super.tick();
     }
 
+    @Override
     public void setYaw(float yaw) {
         this.yaw = yaw;
         super.setYaw(yaw);
     }
 
+    @Override
     public float getPathfindingFavor(BlockPos pos, WorldView world) {
         BlockState blockState = world.getBlockState(pos.down());
         return blockState.getBlock() == TRCBlocks.TURFWOOD.LEAVES && !TurfwoodLeavesBlock.isInfested(blockState) 
@@ -127,6 +159,7 @@ public class GrubwormEntity extends AnimalEntity {
             : super.getPathfindingFavor(pos, world);
     }
 
+    @Override
     public EntityGroup getGroup() {
         return EntityGroup.ARTHROPOD;
     }
@@ -150,6 +183,11 @@ public class GrubwormEntity extends AnimalEntity {
         } else {
             this.world.sendEntityStatus(this, (byte) 20);
         }
+    }
+
+    @Override
+    public PassiveEntity createChild(PassiveEntity mate) {
+        return (GrubwormEntity) TRCEntities.GRUBWORM.create(this.world);
     }
 
     static class WanderAndInfestGoal extends WanderAroundGoal {
@@ -257,10 +295,5 @@ public class GrubwormEntity extends AnimalEntity {
             }
 
         }
-    }
-
-    @Override
-    public PassiveEntity createChild(PassiveEntity mate) {
-        return (GrubwormEntity) TRCEntities.GRUBWORM.create(this.world);
     }
 }
