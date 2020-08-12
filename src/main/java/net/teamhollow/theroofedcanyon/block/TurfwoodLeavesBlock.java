@@ -27,6 +27,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -71,6 +72,11 @@ public class TurfwoodLeavesBlock extends GrassBlock {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
+        return false;
     }
 
     @Environment(EnvType.CLIENT)
