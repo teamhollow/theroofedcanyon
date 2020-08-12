@@ -73,34 +73,6 @@ public class VilepotFlowerBlock extends Block {
         return getVile(state);
     }
 
-    // public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack) {
-    //     super.afterBreak(world, player, pos, state, blockEntity, stack);
-    //     if (!world.isClient) {
-    //         if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
-    //             world.updateComparators(pos, this);
-    //             this.angerNearbyCarniblooms(world, pos);
-    //         }
-    //     }
-    // }
-
-    // @SuppressWarnings("rawtypes")
-    // private void angerNearbyCarniblooms(World world, BlockPos pos) {
-    //     List<CarnibloomEntity> list = world.getNonSpectatingEntities(CarnibloomEntity.class, (new Box(pos)).expand(8.0D, 6.0D, 8.0D));
-    //     if (!list.isEmpty()) {
-    //         List<PlayerEntity> list2 = world.getNonSpectatingEntities(PlayerEntity.class,
-    //                 (new Box(pos)).expand(8.0D, 6.0D, 8.0D));
-    //         int i = list2.size();
-    //         Iterator var6 = list.iterator();
-
-    //         while (var6.hasNext()) {
-    //             CarnibloomEntity carnibloomEntity = (CarnibloomEntity)var6.next();
-    //             if (carnibloomEntity.getTarget() == null) {
-    //                 carnibloomEntity.setTarget((LivingEntity)list2.get(world.random.nextInt(i)));
-    //             }
-    //         }
-    //     }
-    // }
-
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
