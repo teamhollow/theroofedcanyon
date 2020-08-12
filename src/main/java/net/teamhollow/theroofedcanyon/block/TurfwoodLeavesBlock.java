@@ -79,6 +79,7 @@ public class TurfwoodLeavesBlock extends GrassBlock {
         return false;
     }
 
+    @Override
     @Environment(EnvType.CLIENT)
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         int woodPosDown = getLowestConnectedWoodBlock(world, pos);
@@ -112,9 +113,10 @@ public class TurfwoodLeavesBlock extends GrassBlock {
         return canSurvive(state, worldView, pos) && !worldView.getFluidState(blockPos).isIn(FluidTags.WATER);
     }
 
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(INFESTED);
         super.appendProperties(builder);
+        builder.add(INFESTED);
     }
 
 	public static boolean isInfested(BlockState state) {
@@ -128,6 +130,7 @@ public class TurfwoodLeavesBlock extends GrassBlock {
         grubwormEntity.playSpawnEffects();
     }
 
+    @Override
     public void onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack) {
         super.onStacksDropped(state, world, pos, stack);
         if (!world.isClient && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && isInfested(state) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
@@ -135,6 +138,7 @@ public class TurfwoodLeavesBlock extends GrassBlock {
         }
     }
 
+    @Override
     public void onDestroyedByExplosion(World world, BlockPos pos, Explosion explosion) {
         if (!world.isClient && isInfested(world.getBlockState(pos))) {
             this.spawnGrubworm(world, pos);

@@ -41,7 +41,7 @@ import net.minecraft.world.World;
 public class VilepotFlowerBlock extends Block {
     public static String id = "vilepot_flower";
 
-    public static final IntProperty VILE_LEVEL;
+    public static final IntProperty VILE_LEVEL = TRCProperties.VILE_LEVEL;
     public static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
 
     public VilepotFlowerBlock() {
@@ -58,14 +58,17 @@ public class VilepotFlowerBlock extends Block {
         this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(VILE_LEVEL, 0)));
     }
 
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
 
+    @Override
     public boolean hasComparatorOutput(BlockState state) {
         return true;
     }
 
+    @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
         return getVile(state);
     }
@@ -98,6 +101,7 @@ public class VilepotFlowerBlock extends Block {
     //     }
     // }
 
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (getVile(state) > 0 && itemStack.getItem() == Items.GLASS_BOTTLE) {
@@ -135,20 +139,24 @@ public class VilepotFlowerBlock extends Block {
         return getVile(state) == 5;
     }
 
+    @Override
     @Environment(EnvType.CLIENT)
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (isOozing(state))
             VilepotFlowerBlock.spawnVileParticles(world, pos, state, random, 3);
     }
 
+    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         this.modifyVile(world, state, pos, +1);
         VilepotFlowerBlock.spawnVileParticles(world.getWorld(), pos.up(), state, random, 20);
     }
+    @Override
     public boolean hasRandomTicks(BlockState state) {
         return !isMature(state);
     }
 
+    @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity && hasVile(state) && !world.isClient())  {
             LivingEntity livingEntity = (LivingEntity)entity;
@@ -195,10 +203,13 @@ public class VilepotFlowerBlock extends Block {
         world.addParticle(TRCParticleTypes.DRIPPING_VILE, MathHelper.lerp(world.random.nextDouble(), minX, maxX), height, MathHelper.lerp(world.random.nextDouble(), minZ, maxZ), 0.0D, 0.0D, 0.0D);
     }
 
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        super.appendProperties(builder);
         builder.add(VILE_LEVEL);
     }
 
+    @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         int vileLevel = getVile(state);
         if (!player.isCreative() && vileLevel > 0) {
@@ -206,9 +217,5 @@ public class VilepotFlowerBlock extends Block {
         }
 
         super.onBreak(world, pos, state, player);
-    }
-
-    static {
-        VILE_LEVEL = TRCProperties.VILE_LEVEL;
     }
 }
