@@ -86,14 +86,14 @@ public class WoodBlocks {
         FENCE_GATE = new FenceGateBlock(AbstractBlock.Settings.of(config.woodMaterial, config.planksMaterialColor).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
         SAPLING = new PublicSaplingBlock(config.saplingGenerator, AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
         TRAPDOOR = new PublicTrapdoorBlock(AbstractBlock.Settings.of(config.woodMaterial, config.woodMaterialColor).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(TRCBlocks::never));
-        BUTTON = new PublicWoodButtonBlock(AbstractBlock.Settings.of(Material.SUPPORTED).noCollision().strength(0.5F).sounds(BlockSoundGroup.WOOD));
+        BUTTON = new PublicWoodenButtonBlock(AbstractBlock.Settings.of(Material.SUPPORTED).noCollision().strength(0.5F).sounds(BlockSoundGroup.WOOD));
         STAIRS = new PublicStairsBlock(PLANKS.getDefaultState(), AbstractBlock.Settings.copy(PLANKS));
         DOOR = new PublicDoorBlock(AbstractBlock.Settings.of(config.woodMaterial, config.planksMaterialColor).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
 
         Identifier signTexture = new Identifier(TheRoofedCanyon.MOD_ID, "entity/signs/" + id);
         SIGN = new TRCSignBlock(signTexture, AbstractBlock.Settings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD));
         WALL_SIGN = new TRCWallSignBlock(signTexture, AbstractBlock.Settings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(SIGN));
-        Type<?> signBlockEntityType = Util.method_29187(TypeReferences.BLOCK_ENTITY, id + "_sign");
+        Type<?> signBlockEntityType = Util.getChoiceType(TypeReferences.BLOCK_ENTITY, id + "_sign");
         Registry.register(Registry.BLOCK_ENTITY_TYPE, id + "_sign", BlockEntityType.Builder.create(SignBlockEntity::new, SIGN, WALL_SIGN).build(signBlockEntityType));
 
         // check config for default modifications

@@ -12,6 +12,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPointer;
@@ -19,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.world.ServerWorldAccess;
 
 public class TRCBlocks {
     public static final WoodBlocks TURFWOOD = new WoodBlocks(new TurfwoodBlocksConfig());
@@ -47,12 +48,12 @@ public class TRCBlocks {
 
             public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                 this.setSuccess(false);
-                WorldAccess worldAccess = pointer.getWorld();
+                ServerWorldAccess worldAccess = pointer.getWorld();
                 BlockPos blockPos = pointer.getBlockPos()
                         .offset((Direction) pointer.getBlockState().get(DispenserBlock.FACING));
                 BlockState blockState = worldAccess.getBlockState(blockPos);
                 if (blockState.getBlock() == TRCBlocks.VILEPOT_FLOWER && VilepotFlowerBlock.hasVile(blockState)) {
-                    ((VilepotFlowerBlock) blockState.getBlock()).modifyVile(worldAccess.getWorld(), blockState,
+                    ((VilepotFlowerBlock) blockState.getBlock()).modifyVile((ServerWorld)worldAccess, blockState,
                             blockPos, -1);
                     this.setSuccess(true);
                     return this.method_22141(pointer, stack, new ItemStack(TRCItems.VILE_BOTTLE));

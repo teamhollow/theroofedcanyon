@@ -121,7 +121,7 @@ public class VilepotFlowerBlock extends Block {
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         this.modifyVile(world, state, pos, +1);
-        VilepotFlowerBlock.spawnVileParticles(world.getWorld(), pos.up(), state, random, 20);
+        VilepotFlowerBlock.spawnVileParticles(world, pos.up(), state, random, 20);
     }
     @Override
     public boolean hasRandomTicks(BlockState state) {

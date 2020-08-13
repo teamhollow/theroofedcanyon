@@ -29,6 +29,7 @@ import net.minecraft.item.ItemUsage;
 import net.minecraft.item.Items;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -186,7 +187,7 @@ public class GrubwormEntity extends AnimalEntity {
     }
 
     @Override
-    public PassiveEntity createChild(PassiveEntity mate) {
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity mate) {
         return (GrubwormEntity) TRCEntities.GRUBWORM.create(this.world);
     }
 

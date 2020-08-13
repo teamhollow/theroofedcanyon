@@ -2,9 +2,9 @@ package net.teamhollow.theroofedcanyon.block.config;
 
 import net.teamhollow.theroofedcanyon.block.TurfwoodLeavesBlock;
 import net.teamhollow.theroofedcanyon.block.helpers.WoodBlocksConfig;
-import net.teamhollow.theroofedcanyon.block.sapling.TurfwoodSaplingGenerator;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
+import net.minecraft.block.sapling.OakSaplingGenerator;
 import net.minecraft.entity.vehicle.BoatEntity;
 
 public class TurfwoodBlocksConfig extends WoodBlocksConfig {
@@ -22,7 +22,7 @@ public class TurfwoodBlocksConfig extends WoodBlocksConfig {
         strippedWoodMaterial = Material.WOOD;
         strippedWoodMaterialColor = MaterialColor.WOOD;
 
-        saplingGenerator = new TurfwoodSaplingGenerator();
+        saplingGenerator = new OakSaplingGenerator();
         LEAVES = new TurfwoodLeavesBlock();
         vanillaBoatType = BoatEntity.Type.JUNGLE;
     }

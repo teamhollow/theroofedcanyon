@@ -124,14 +124,14 @@ public class TurfwoodLeavesBlock extends GrassBlock {
     }
 
     private void spawnGrubworm(World world, BlockPos pos) {
-        GrubwormEntity grubwormEntity = (GrubwormEntity) TRCEntities.GRUBWORM.create(world);
-        grubwormEntity.refreshPositionAndAngles((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
+        GrubwormEntity grubwormEntity = TRCEntities.GRUBWORM.create(world);
+        grubwormEntity.refreshPositionAndAngles(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
         world.spawnEntity(grubwormEntity);
         grubwormEntity.playSpawnEffects();
     }
 
     @Override
-    public void onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack) {
+    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack) {
         super.onStacksDropped(state, world, pos, stack);
         if (!world.isClient && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && isInfested(state) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
             this.spawnGrubworm(world, pos);

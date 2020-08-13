@@ -13,6 +13,7 @@ import net.minecraft.item.ItemUsage;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -46,7 +47,7 @@ public class GrubwormInABowlItem extends Item {
             ItemStack itemStack = context.getStack();
             PlayerEntity player = context.getPlayer();
             EntityType<GrubwormEntity> entityType = this.getEntityType();
-            if (entityType.spawnFromItemStack(world, itemStack, player, blockPosToSpawn, SpawnReason.SPAWN_EGG, true, !Objects.equals(blockPos, blockPosToSpawn) && usedSide == Direction.UP) != null && player instanceof ServerPlayerEntity) {
+            if (entityType.spawnFromItemStack((ServerWorld)world, itemStack, player, blockPosToSpawn, SpawnReason.SPAWN_EGG, true, !Objects.equals(blockPos, blockPosToSpawn) && usedSide == Direction.UP) != null && player instanceof ServerPlayerEntity) {
                 Criteria.CONSUME_ITEM.trigger((ServerPlayerEntity)player, itemStack);
 
                 if (!player.abilities.creativeMode) {

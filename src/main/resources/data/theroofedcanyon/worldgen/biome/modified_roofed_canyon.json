@@ -1,0 +1,100 @@
+{
+    "effects": {
+        "mood_sound": {
+            "sound": "minecraft:ambient.cave",
+            "tick_delay": 6000,
+            "block_search_extent": 8,
+            "offset": 2.0
+        },
+        "sky_color": 7842047,
+        "fog_color": 12638463,
+        "water_color": 4159204,
+        "water_fog_color": 329011
+    },
+    "surface_builder": "minecraft:grass",
+    "carvers": {
+        "air": [
+            "minecraft:cave",
+            "minecraft:canyon"
+        ]
+    },
+    "features": [
+        [],
+        [
+            "minecraft:lake_water",
+            "minecraft:lake_lava"
+        ],
+        [],
+        [
+            "minecraft:monster_room"
+        ],
+        [],
+        [],
+        [
+            "minecraft:ore_dirt",
+            "minecraft:ore_gravel",
+            "minecraft:ore_granite",
+            "minecraft:ore_diorite",
+            "minecraft:ore_andesite",
+            "minecraft:ore_coal",
+            "minecraft:ore_iron",
+            "minecraft:ore_gold",
+            "minecraft:ore_redstone",
+            "minecraft:ore_diamond",
+            "minecraft:ore_lapis",
+            "minecraft:disk_sand",
+            "minecraft:disk_clay",
+            "minecraft:disk_gravel"
+        ],
+        [],
+        [
+            "theroofedcanyon:trees_roofed_canyon",
+            "minecraft:flower_warm",
+            "minecraft:patch_grass_jungle",
+            "minecraft:brown_mushroom_normal",
+            "minecraft:red_mushroom_normal",
+            "minecraft:patch_sugar_cane",
+            "minecraft:patch_pumpkin",
+            "minecraft:spring_water",
+            "minecraft:spring_lava",
+            "minecraft:patch_melon",
+            "minecraft:vines"
+        ],
+        [
+            "minecraft:freeze_top_layer"
+        ]
+    ],
+    "starts": [
+        "minecraft:mineshaft",
+        "minecraft:stronghold"
+    ],
+    "spawners": {
+        "monster": [
+            {
+                "type": "minecraft:slime",
+                "weight": 12,
+                "minCount": 4,
+                "maxCount": 4
+            }
+        ],
+        "creature": [
+            {
+                "type": "theroofedcanyon:grubworm",
+                "weight": 12,
+                "minCount": 3,
+                "maxCount": 4
+            }
+        ],
+        "ambient": [],
+        "water_creature": [],
+        "water_ambient": [],
+        "misc": []
+    },
+    "spawn_costs": {},
+    "precipitation": "rain",
+    "temperature": 0.9,
+    "downfall": 0.4,
+    "category": "forest",
+    "depth": 0.025,
+    "scale": 0.8
+}

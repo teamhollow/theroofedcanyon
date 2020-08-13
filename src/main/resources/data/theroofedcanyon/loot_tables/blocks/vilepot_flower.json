@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "theroofedcanyon:vilepot_flower"
+                    "name": "theroofedcanyon:vilepot_flower_flower"
                 }
             ],
             "conditions": [

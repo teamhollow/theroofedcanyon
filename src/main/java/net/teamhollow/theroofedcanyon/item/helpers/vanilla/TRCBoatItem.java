@@ -42,7 +42,7 @@ public class TRCBoatItem extends Item {
 
 		Vec3d rotation = player.getRotationVec(1.0F);
 
-		List<Entity> entities = world.getEntities(player, player.getBoundingBox().stretch(rotation.multiply(5.0D)).expand(1.0D), RIDERS);
+		List<Entity> entities = world.getEntitiesByClass(player.getClass(), player.getBoundingBox().stretch(rotation.multiply(5.0D)).expand(1.0D), RIDERS);
 
 		if (!entities.isEmpty()) {
 			Vec3d playerCameraPos = player.getCameraPosVec(1.0F);
