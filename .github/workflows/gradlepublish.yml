@@ -3,7 +3,10 @@
 
 name: Gradle Package
 
-on: push
+on:
+  push:
+    branches:
+      - fabric/1.16.1
 
 jobs:
   build:
