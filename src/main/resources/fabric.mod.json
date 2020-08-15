@@ -3,14 +3,15 @@
     "id": "theroofedcanyon",
     "version": "${version}",
     "name": "The Roofed Canyon",
-    "description": "Technically underground",
+    "description": "Wait, it's *not* a plains biome?",
     "authors": [
-        "MCS Mod Development Team",
         "Team Hollow"
     ],
     "contributors": [],
     "contact": {
-        "sources": "https://github.com/teamhollow/theroofedcanyon"
+        "homepage": "https://theroofedcanyon.teamhollow.net",
+        "sources": "https://github.com/teamhollow/theroofedcanyon",
+        "issues": "https://github.com/teamhollow/theroofedcanyon/issues"
     },
     "license": "MIT",
     "icon": "pack.png",
@@ -29,7 +30,7 @@
         "theroofedcanyon.mixins.json"
     ],
     "depends": {
-        "minecraft": "1.16.x",
+        "minecraft": "1.16.1",
         "fabricloader": ">=0.9.0",
         "fabric": "*"
     }
