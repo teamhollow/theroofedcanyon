@@ -6,10 +6,10 @@ import static net.teamhollow.theroofedcanyon.init.TRCBlocks.*;
 import static net.teamhollow.theroofedcanyon.init.TRCEntities.*;
 import static net.teamhollow.theroofedcanyon.init.TRCItems.*;
 
-import net.teamhollow.theroofedcanyon.TheRoofedCanyon;
 import net.teamhollow.theroofedcanyon.block.helpers.vanilla.*;
 import net.teamhollow.theroofedcanyon.entity.vanilla.TRCBoatEntity;
 import net.teamhollow.theroofedcanyon.init.TRCBlocks;
+import net.teamhollow.theroofedcanyon.init.TRCEntities;
 import net.teamhollow.theroofedcanyon.init.TRCItems;
 import net.teamhollow.theroofedcanyon.item.helpers.vanilla.TRCBoatItem;
 import net.teamhollow.theroofedcanyon.registry.SpriteIdentifierRegistry;
@@ -90,7 +90,7 @@ public class WoodBlocks {
         STAIRS = new PublicStairsBlock(PLANKS.getDefaultState(), AbstractBlock.Settings.copy(PLANKS));
         DOOR = new PublicDoorBlock(AbstractBlock.Settings.of(config.woodMaterial, config.planksMaterialColor).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
 
-        Identifier signTexture = new Identifier(TheRoofedCanyon.MOD_ID, "entity/signs/" + id);
+        Identifier signTexture = TRCEntities.texture("signs/" + id);
         SIGN = new TRCSignBlock(signTexture, AbstractBlock.Settings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD));
         WALL_SIGN = new TRCWallSignBlock(signTexture, AbstractBlock.Settings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(SIGN));
         Type<?> signBlockEntityType = Util.method_29187(TypeReferences.BLOCK_ENTITY, id + "_sign");
@@ -196,7 +196,7 @@ public class WoodBlocks {
         }
 
         // signs
-        SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, new Identifier(TheRoofedCanyon.MOD_ID, "entity/signs/" + id + ".png")));
+        SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, TRCEntities.texture("signs/" + id)));
     }
 
     public void addStrippingFunctionality(Block toStrip, Block result) {
