@@ -3,6 +3,8 @@ package net.teamhollow.theroofedcanyon;
 import org.apache.logging.log4j.Level;
 
 import net.teamhollow.theroofedcanyon.block.helpers.WoodBlocks;
+import net.teamhollow.theroofedcanyon.entity.chomproot.ChomprootEntityRenderer;
+import net.teamhollow.theroofedcanyon.entity.grubworm.GrubwormEntityRenderer;
 import net.teamhollow.theroofedcanyon.init.TRCBlocks;
 import net.teamhollow.theroofedcanyon.init.TRCEntities;
 import net.teamhollow.theroofedcanyon.init.TRCParticleTypes;
@@ -24,7 +26,7 @@ public class TheRoofedCanyonClient implements ClientModInitializer {
 
         new Utils();
         TRCParticleTypes.registerFactories();
-        TRCEntities.registerRenderers();
+        this.registerRenderers();
 
         // biome colours
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
@@ -55,6 +57,19 @@ public class TheRoofedCanyonClient implements ClientModInitializer {
         }
 
         log(Level.INFO, "Initialized client");
+    }
+
+    public void registerRenderers() {
+        EntityRendererRegistry INSTANCE = EntityRendererRegistry.INSTANCE;
+
+        INSTANCE.register(
+            TRCEntities.GRUBWORM,
+            (entityRenderDispatcher, context) -> new GrubwormEntityRenderer(entityRenderDispatcher)
+        );
+        INSTANCE.register(
+            TRCEntities.CHOMPROOT,
+            (entityRenderDispatcher, context) -> new ChomprootEntityRenderer(entityRenderDispatcher)
+        );
     }
 
     public static void log(Level level, String message) {

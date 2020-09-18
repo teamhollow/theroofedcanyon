@@ -6,7 +6,6 @@ import net.teamhollow.theroofedcanyon.entity.chomproot.*;
 import net.teamhollow.theroofedcanyon.entity.grubworm.*;
 import net.teamhollow.theroofedcanyon.entity.vanilla.TRCBoatEntity;
 import net.teamhollow.theroofedcanyon.util.TRCBoat;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.Entity;
@@ -36,19 +35,6 @@ public class TRCEntities {
     public TRCEntities() {
         registerDefaultAttributes(GRUBWORM, GrubwormEntity.createGrubwormAttributes());
         registerDefaultAttributes(CHOMPROOT, ChomprootEntity.createChomprootAttributes());
-    }
-
-    public static void registerRenderers() {
-        EntityRendererRegistry INSTANCE = EntityRendererRegistry.INSTANCE;
-
-        INSTANCE.register(
-            GRUBWORM,
-            (entityRenderDispatcher, context) -> new GrubwormEntityRenderer(entityRenderDispatcher)
-        );
-        INSTANCE.register(
-            CHOMPROOT,
-            (entityRenderDispatcher, context) -> new ChomprootEntityRenderer(entityRenderDispatcher)
-        );
     }
 
     private static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> entityType, int[] spawnEggColors) {
