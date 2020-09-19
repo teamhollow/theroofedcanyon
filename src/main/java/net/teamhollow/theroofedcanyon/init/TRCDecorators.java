@@ -22,12 +22,15 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
 
 public class TRCDecorators {
     public static WoodBlocks TURFWOOD = TRCBlocks.TURFWOOD;
 
     // configs
-    public static final TreeFeatureConfig MEGA_TURFWOOD_TREE_CONFIG = new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(TURFWOOD.LOG.getDefaultState()), new SimpleBlockStateProvider(TURFWOOD.LEAVES.getDefaultState()), new TurfwoodFoliagePlacer(7, 3, 0, 0, 2), new TurfwoodTrunkPlacer(10, 2, 13), new TwoLayersFeatureSize(1, 1, 2)).decorators(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(TURFWOOD.LEAVES.getDefaultState())), TrunkVineTreeDecorator.field_24965, LeaveVineTreeDecorator.field_24961)).build();
+    public static final TreeFeatureConfig TURFWOOD_TREE_CONFIG = new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(TURFWOOD.LOG.getDefaultState()), new SimpleBlockStateProvider(TURFWOOD.LEAVES.getDefaultState()), new TurfwoodFoliagePlacer(8, 2, 0, 0, 1), new DarkOakTrunkPlacer(9, 2, 1), new TwoLayersFeatureSize(1, 1, 2)).decorators(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(TURFWOOD.LEAVES.getDefaultState())), TrunkVineTreeDecorator.field_24965, LeaveVineTreeDecorator.field_24961)).build();
+    public static final TreeFeatureConfig TURFWOOD_TREE_MEGA_CONFIG = new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(TURFWOOD.LOG.getDefaultState()), new SimpleBlockStateProvider(TURFWOOD.LEAVES.getDefaultState()), new TurfwoodFoliagePlacer(7, 3, 0, 0, 2), new TurfwoodTrunkPlacer(10, 2, 13), new TwoLayersFeatureSize(1, 1, 2)).decorators(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(TURFWOOD.LEAVES.getDefaultState())), TrunkVineTreeDecorator.field_24965, LeaveVineTreeDecorator.field_24961)).build();
+
     public static final RandomPatchFeatureConfig VILEPOT_PATCH_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(TRCBlocks.VILEPOT_FLOWER.getDefaultState()), SimpleBlockPlacer.field_24871).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).canReplace().cannotProject().build();
 
     public static final Decorator<NopeDecoratorConfig> TURFWOOD_TREE = register("turfwood_tree", new TurfwoodTreeDecorator(NopeDecoratorConfig.field_24891));

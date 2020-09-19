@@ -13,6 +13,6 @@ public class TurfwoodSaplingGenerator extends LargeTreeSaplingGenerator {
     }
 
     public ConfiguredFeature<TreeFeatureConfig, ?> createLargeTreeFeature(Random random) {
-        return Feature.TREE.configure(TRCDecorators.MEGA_TURFWOOD_TREE_CONFIG);
+        return Feature.TREE.configure(TRCDecorators.TURFWOOD_TREE_CONFIG);
     }
 }
